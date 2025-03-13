@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function SignUp({ onSignup }) {
   const [name, setName] = useState('');
@@ -6,8 +7,30 @@ export function SignUp({ onSignup }) {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [grade, setGrade] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Use the navigate hook to redirect to the login page
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const newStudent = { name, email, phone, address, grade, password };
+
+    // Save student data to localStorage
+    const students = JSON.parse(localStorage.getItem('students')) || [];
+
+    // Check if a student with the same email already exists
+    const emailExists = students.some(student => student.email === newStudent.email);
+
+    if (emailExists) {
+      alert('This email is already registered.');
+    } else {
+      students.push(newStudent);
+      localStorage.setItem('students', JSON.stringify(students));
+
+    onSignup(newStudent);
+    navigate('/login'); // Redirect to the login page
+    }
+  };
 
   return (
     <div className="max-w-md mx-auto p-4">
@@ -71,6 +94,19 @@ export function SignUp({ onSignup }) {
             placeholder="Grade"
             value={grade}
             onChange={(e) => setGrade(e.target.value)}
+            required
+            className="p-3 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="password" className="text-sm font-semibold mb-2">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
             className="p-3 border border-gray-300 rounded-md"
           />
