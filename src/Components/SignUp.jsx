@@ -6,7 +6,7 @@ export function SignUp({ onSignup }) {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
-  const [grade, setGrade] = useState('');
+  const [level, setLevel] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use the navigate hook to redirect to the login page
 
@@ -88,12 +88,12 @@ export function SignUp({ onSignup }) {
         </div>
     
         <div className="flex flex-col">
-          <label htmlFor="grade" className="text-sm font-semibold mb-2">Grade</label>
+          <label htmlFor="level" className="text-sm font-semibold mb-2">Level</label>
           <input
-            id="grade"
-            placeholder="Grade"
-            value={grade}
-            onChange={(e) => setGrade(e.target.value)}
+            id="level"
+            placeholder="Level"
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
             required
             className="p-3 border border-gray-300 rounded-md"
           />
