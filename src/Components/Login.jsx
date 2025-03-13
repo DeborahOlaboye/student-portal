@@ -29,6 +29,7 @@ function Login({ onLogin }) {
 
   return (
     <div className="max-w-md mx-auto p-6">
+      <h1>Login</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div className="flex flex-col">
           <label htmlFor="email" className="text-sm font-semibold mb-2">Email Address</label>

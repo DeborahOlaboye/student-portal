@@ -13,7 +13,7 @@ export function SignUp({ onSignup }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const newStudent = { name, email, phone, address, grade, password };
+    const newStudent = { name, email, phone, address, level, password };
 
     // Save student data to localStorage
     const students = JSON.parse(localStorage.getItem('students')) || [];

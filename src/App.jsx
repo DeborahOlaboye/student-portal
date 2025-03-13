@@ -4,6 +4,7 @@ import './App.css';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login';
 import StudentPortal from './Components/StudentPortal';
+import Welcome from './Components/Welcome';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -31,24 +32,9 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <h1 className="text-3xl font-bold text-center my-4">Welcome to The Pathfinders Academy</h1>
-
-        <Routes>
+      <Routes>
           {/* Home Route (Login & SignUp) */}
-          <Route
-            path="/"
-            element={
-              !isLoggedIn ? (
-                <div className="flex justify-center gap-4">
-                  <Login onLogin={handleLogin} />
-                  <SignUp onSignup={handleSignup} />
-                </div>
-              ) : (
-                <Navigate to="/dashboard" />
-              )
-            }
-          />
+          <Route path="/" element={<Welcome/>}/>
 
           {/* Login Route */}
           <Route
@@ -68,7 +54,6 @@ function App() {
           {/* Default Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </div>
     </Router>
   );
 }
