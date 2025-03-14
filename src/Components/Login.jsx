@@ -28,42 +28,49 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-        <div className="flex flex-col">
-          <label htmlFor="email" className="text-sm font-semibold mb-2">Email Address</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+    <div className="main-container">
+      <div className="left-container">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="input-details">
+            <label htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="password" className="text-sm font-semibold mb-2">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="input-details">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition"
-        >
-          Log In
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition"
+          >
+            Log In
+          </button>
+        </form>
+        <div className="footnote">
+          <p>Yet to have an account?</p>
+          <button onClick={() => navigate('/signup')}>SignUp Here</button>   
+        </div>
+      </div>
+      <div className='img-container'>
+        <img src="\src\assets\edu.jpg" alt="" />
+      </div>
     </div>
   );
 }

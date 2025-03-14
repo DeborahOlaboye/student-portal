@@ -33,86 +33,89 @@ export function SignUp({ onSignup }) {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h2 className='text-xl font-bold mb-4'>Student Registration</h2>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
-        <div className="flex flex-col">
-          <label htmlFor="name" className="text-sm font-semibold mb-2">Full Name</label>
-          <input
-            id="name"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+    <div className="main-container">
+      <div className='left-container'>
+        <h2>Student Registration</h2>
+        <form onSubmit={handleSubmit}>
+          <div className='input-details'>
+            <label htmlFor="name">Full Name *</label>
+            <input
+              id="name"
+              placeholder="Enter Your Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="phone" className="text-sm font-semibold mb-2">Phone Number</label>
-          <input
-            id="phone"
-            type="tel"
-            placeholder="Enter Your Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="input-details">
+            <label htmlFor="phone">Phone Number *</label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="Enter Your Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="email" className="text-sm font-semibold mb-2">Email</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="input-details">
+            <label htmlFor="email">Email Address *</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter Your Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="address" className="text-sm font-semibold mb-2">Address</label>
-          <input
-            id="address"
-            type="text"
-            placeholder="Enter Your Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="input-details">
+            <label htmlFor="address">Address *</label>
+            <input
+              id="address"
+              type="text"
+              placeholder="Enter Your Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              required
+            />
+          </div>
     
-        <div className="flex flex-col">
-          <label htmlFor="level" className="text-sm font-semibold mb-2">Level</label>
-          <input
-            id="level"
-            placeholder="Level"
-            value={level}
-            onChange={(e) => setLevel(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="input-details">
+            <label htmlFor="level">Level *</label>
+            <input
+              id="level"
+              placeholder="Enter Your Level"
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="password" className="text-sm font-semibold mb-2">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="p-3 border border-gray-300 rounded-md"
-          />
+          <div className="input-details">
+            <label htmlFor="password">Password *</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Set Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type='submit'>Sign Up</button>
+        </form>
+        <div className="footnote">
+          <p>Already have an account?</p>
+          <button onClick={() => navigate('/login')}>Login Here</button>   
         </div>
-        <button type='submit' className="bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition">Sign Up</button>
-      </form>
+      </div>
+      <div className='img-container'>
+        <img src="\src\assets\edu.jpg" alt="" />
+      </div>
     </div>
   );
 }
